@@ -7,6 +7,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -17,6 +18,19 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Track active section
+      const sections = ["home", "about", "services", "contact"];
+      for (const section of sections) {
+        const element = document.querySelector(`#${section}`);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -59,16 +73,32 @@ export default function Navbar() {
 
             {/* Desktop Nav - Centered */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleScrollTo(e, link.href)}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const sectionId = link.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleScrollTo(e, link.href)}
+                    className={cn(
+                      "text-sm font-medium transition-colors relative pb-1",
+                      isActive 
+                        ? "text-primary font-semibold" 
+                        : "text-foreground hover:text-primary"
+                    )}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="navbar-indicator"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 40 }}
+                      />
+                    )}
+                  </a>
+                );
+              })}
             </div>
 
             {/* WhatsApp Button */}
@@ -96,16 +126,25 @@ export default function Navbar() {
         {/* Mobile Nav */}
         {isOpen && (
           <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b border-border shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleScrollTo(e, link.href)}
-                className="text-base font-medium text-foreground hover:text-primary py-2 px-4 rounded-md hover:bg-muted"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className={cn(
+                    "text-base font-medium py-2 px-4 rounded-md transition-colors",
+                    isActive
+                      ? "bg-primary/10 text-primary font-semibold border-l-2 border-primary"
+                      : "text-foreground hover:text-primary hover:bg-muted"
+                  )}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
             <a
               href="https://wa.me/27686494265"
               target="_blank"

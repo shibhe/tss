@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -55,27 +54,33 @@ export default function Navbar() {
               onClick={(e) => handleScrollTo(e, "#home")}
               className="flex items-center justify-center transition-all hover:scale-105"
             >
-              <img src="/logo.png" alt="Tivane Software Solutions" className="h-16 md:h-20 w-16 md:w-20 rounded-full object-cover border border-primary/20 shadow-lg" />
+              <img src="/logo.png" alt="Tivane Software Solutions" className="h-10 md:h-12 w-10 md:w-12 rounded-full object-cover border border-primary/20 shadow-lg" />
             </a>
 
-            {/* Desktop Nav */}
+            {/* Desktop Nav - Centered */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleScrollTo(e, link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <Button asChild size="sm" className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")}>
-                  Get Started
-                </a>
-              </Button>
             </div>
+
+            {/* WhatsApp Button */}
+            <a
+              href="https://wa.me/27686494265"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:scale-105"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="text-sm font-medium">+27 68 649 4265</span>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -101,11 +106,15 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full mt-2" asChild>
-               <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")}>
-                  Get Started
-                </a>
-            </Button>
+            <a
+              href="https://wa.me/27686494265"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="text-sm font-medium">+27 68 649 4265</span>
+            </a>
           </div>
         )}
       </nav>

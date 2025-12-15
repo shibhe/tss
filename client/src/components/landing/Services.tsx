@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
 
 type ServiceDetail = {
   overview: string;
@@ -248,26 +247,49 @@ export default function Services() {
         </div>
       </div>
 
-      <Dialog open={!!selectedService} onOpenChange={(open) => !open && setSelectedService(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto sm:max-h-[85vh]">
-          {selectedService && (
-            <>
-              <DialogHeader>
-                <div className={`w-12 h-12 rounded-lg ${selectedService.bg} flex items-center justify-center mb-4`}>
-                  <selectedService.icon className={`h-6 w-6 ${selectedService.color}`} />
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {selectedService && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedService(null)}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="fixed left-4 right-4 top-1/2 -translate-y-1/2 z-50 max-w-2xl w-full mx-auto max-h-[90vh] overflow-y-auto rounded-xl bg-card border border-border shadow-2xl"
+            >
+              <div className="sticky top-0 bg-card border-b border-border p-6 flex justify-between items-start gap-4">
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-lg ${selectedService.bg} flex items-center justify-center shrink-0`}>
+                    <selectedService.icon className={`h-6 w-6 ${selectedService.color}`} />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold font-heading text-foreground">
+                      {selectedService.title}
+                    </h2>
+                    <p className="text-muted-foreground mt-2 text-sm">
+                      {selectedService.details.overview}
+                    </p>
+                  </div>
                 </div>
-                <DialogTitle className="text-2xl font-bold font-heading">{selectedService.title}</DialogTitle>
-                <DialogDescription className="text-lg pt-2">
-                  {selectedService.details.overview}
-                </DialogDescription>
-              </DialogHeader>
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="text-muted-foreground hover:text-foreground shrink-0 transition-colors p-1"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
 
-              <div className="space-y-6 py-4">
+              <div className="p-6 space-y-6">
                 {/* Key Features */}
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                    Key Features
-                  </h4>
+                  <h4 className="font-semibold text-foreground mb-3">Key Features</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {selectedService.details.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -304,20 +326,20 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t border-border">
+              <div className="sticky bottom-0 bg-card border-t border-border p-6 flex justify-end gap-3">
                 <Button variant="outline" onClick={() => setSelectedService(null)}>
                   Close
                 </Button>
-                <Button asChild>
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href="#contact" onClick={() => setSelectedService(null)}>
                     Start Project
                   </a>
                 </Button>
               </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

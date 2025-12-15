@@ -33,7 +33,7 @@ export default function Hero() {
       icon: MessageCircle,
       color: "text-teal-500",
       position: "left-10 top-1/3",
-      size: "h-6 w-6",
+      size: "h-10 w-10",
       duration: 3,
       delay: 0
     },
@@ -42,7 +42,7 @@ export default function Hero() {
       color: "text-purple-500",
       position: "left-20 bottom-1/4",
       bg: "bg-purple-100 dark:bg-purple-900/20",
-      size: "h-8 w-8",
+      size: "h-12 w-12",
       duration: 3.5,
       delay: 0.5,
       circle: true
@@ -59,7 +59,7 @@ export default function Hero() {
       icon: Mail,
       color: "text-orange-500",
       position: "right-10 bottom-1/3",
-      size: "h-6 w-6",
+      size: "h-10 w-10",
       duration: 3.2,
       delay: 0.8
     },
@@ -67,7 +67,7 @@ export default function Hero() {
       icon: Settings,
       color: "text-purple-500",
       position: "left-1/3 bottom-10",
-      size: "h-7 w-7",
+      size: "h-11 w-11",
       duration: 3.8,
       delay: 1
     }

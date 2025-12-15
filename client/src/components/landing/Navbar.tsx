@@ -21,18 +21,29 @@ export default function Navbar() {
 
       // Track active section
       const sections = ["home", "about", "services", "contact"];
+      let foundActive = false;
+      
       for (const section of sections) {
         const element = document.querySelector(`#${section}`);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          // Use viewport height to detect if section is in view
+          if (rect.top < window.innerHeight * 0.5 && rect.bottom > 0) {
             setActiveSection(section);
+            foundActive = true;
             break;
           }
         }
       }
+      
+      // If no section is found, we're likely at the bottom, set to contact
+      if (!foundActive && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
+        setActiveSection("contact");
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call once on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

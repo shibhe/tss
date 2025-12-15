@@ -43,11 +43,11 @@ export default function Services() {
         overview: "We build scalable, robust, and secure software solutions that drive business growth. From MVP development to enterprise-grade applications, our team leverages cutting-edge technologies to deliver exceptional digital experiences.",
         features: [
           "Full-stack Web Development",
-          "Mobile App Development (iOS & Android)",
           "Cloud-Native Solutions",
           "Legacy System Modernization",
           "Real-time Collaboration Features",
-          "Scalable Architecture Design"
+          "Scalable Architecture Design",
+          "Microservices Architecture"
         ],
         metrics: [
           { label: "Faster Time-to-Market", value: "40%" },
@@ -56,63 +56,36 @@ export default function Services() {
         ],
         caseStudies: [
           { title: "E-commerce Platform", result: "Increased sales by 150%", metric: "6-month ROI" },
-          { title: "Healthcare Mobile App", result: "10,000+ active users", metric: "3.8★ rating" }
+          { title: "SaaS Application", result: "Scaled to 50K+ users", metric: "99.9% uptime" }
         ],
-        tech: ["React", "Node.js", "Python", "AWS", "Flutter", "PostgreSQL"]
+        tech: ["React", "Node.js", "Python", "AWS", "PostgreSQL", "Docker"]
       }
     },
     {
-      icon: Server,
-      title: "API Management",
-      description: "Using Application Programming Interfaces (APIs) to facilitate communication between different software applications.",
+      icon: MessageSquare,
+      title: "Mobile Application",
+      description: "Native and cross-platform mobile applications designed for iOS and Android with superior user experience.",
       color: "text-blue-600",
       details: {
-        overview: "Streamline your digital ecosystem with our comprehensive API management solutions. We design, build, and maintain secure APIs that enable seamless data exchange and functionality across your applications.",
+        overview: "We develop high-performance mobile applications that engage users and drive business results. From concept to App Store launch, we handle everything including UI/UX design, backend integration, and ongoing support.",
         features: [
-          "API Strategy & Design",
-          "Secure Gateway Implementation",
-          "Lifecycle Management",
-          "Performance Monitoring",
-          "Rate Limiting & Throttling",
-          "Advanced Analytics Dashboard"
+          "Native iOS & Android Development",
+          "Cross-platform Solutions",
+          "Offline-first Architecture",
+          "Push Notifications & Analytics",
+          "In-app Payment Integration",
+          "App Store Optimization"
         ],
         metrics: [
-          { label: "Integration Speed", value: "3x" },
-          { label: "Uptime Guarantee", value: "99.99%" },
-          { label: "Security Incidents", value: "0" }
+          { label: "Average Rating", value: "4.7★" },
+          { label: "Daily Active Users", value: "100K+" },
+          { label: "App Store Ranking", value: "Top 50" }
         ],
         caseStudies: [
-          { title: "Banking Integration", result: "Connected 15+ financial services", metric: "Zero downtime" },
-          { title: "Fintech Startup", result: "Processed $50M in transactions", metric: "Sub-100ms latency" }
+          { title: "Fitness App", result: "2M+ downloads in 6 months", metric: "4.8★ rating" },
+          { title: "Banking App", result: "$500M transactions annually", metric: "256-bit encryption" }
         ],
-        tech: ["GraphQL", "REST", "Kong", "Apigee", "OAuth 2.0", "API Gateway"]
-      }
-    },
-    {
-      icon: CheckCircle2,
-      title: "Testing and Validation",
-      description: "Ensuring that the integrated systems work as intended and meet business requirements through rigorous testing.",
-      color: "text-teal-600",
-      details: {
-        overview: "Quality is non-negotiable. Our comprehensive testing services ensure your software is bug-free, performant, and reliable before it reaches your users.",
-        features: [
-          "Automated Testing Suites",
-          "Performance & Load Testing",
-          "Security Vulnerability Assessment",
-          "User Acceptance Testing (UAT)",
-          "Mobile App Testing",
-          "Cross-browser Compatibility"
-        ],
-        metrics: [
-          { label: "Defect Reduction", value: "85%" },
-          { label: "Test Coverage", value: "100%" },
-          { label: "Release Confidence", value: "High" }
-        ],
-        caseStudies: [
-          { title: "SaaS Platform", result: "Reduced bugs by 87%", metric: "Pre-launch verified" },
-          { title: "Mobile App", result: "100% test coverage achieved", metric: "50 concurrent users" }
-        ],
-        tech: ["Selenium", "Jest", "Cypress", "JMeter", "SonarQube", "Playwright"]
+        tech: ["Swift", "Kotlin", "React Native", "Flutter", "Firebase", "AWS Mobile Hub"]
       }
     },
     {
@@ -167,33 +140,6 @@ export default function Services() {
           { title: "Service Company", result: "360° customer view", metric: "NPS +40 points" }
         ],
         tech: ["Salesforce", "HubSpot", "Zoho", "Dynamics 365", "Custom Solutions"]
-      }
-    },
-    {
-      icon: MessageSquare,
-      title: "Custom Chatbot",
-      description: "We design and develop chatbots that can be integrated across various platforms providing a unified experience.",
-      color: "text-cyan-600",
-      details: {
-        overview: "Enhance customer engagement 24/7 with intelligent chatbots. Our AI-driven conversational interfaces provide instant support, lead qualification, and personalized recommendations.",
-        features: [
-          "NLP-powered Conversations",
-          "Multi-channel Deployment",
-          "Sentiment Analysis",
-          "Seamless Human Handoff",
-          "Conversation Analytics",
-          "Multi-language Support"
-        ],
-        metrics: [
-          { label: "Response Time", value: "<1s" },
-          { label: "Support Cost", value: "-40%" },
-          { label: "Resolution Rate", value: "70%" }
-        ],
-        caseStudies: [
-          { title: "E-commerce Store", result: "Handled 10K conversations/day", metric: "85% automation" },
-          { title: "Service Provider", result: "24/7 customer support", metric: "92% satisfaction" }
-        ],
-        tech: ["Dialogflow", "OpenAI API", "Botpress", "Microsoft Bot Framework", "Rasa"]
       }
     },
     {

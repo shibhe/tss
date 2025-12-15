@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
@@ -53,10 +53,9 @@ export default function Navbar() {
             <a 
               href="#home" 
               onClick={(e) => handleScrollTo(e, "#home")}
-              className="flex items-center gap-2 font-heading font-bold text-2xl text-primary"
+              className="flex items-center transition-transform hover:scale-105"
             >
-              <Code2 className="h-8 w-8" />
-              <span className="text-foreground">T.S.S</span>
+              <img src="/logo.png" alt="Tivane Software Solutions" className="h-12 md:h-14 w-auto" />
             </a>
 
             {/* Desktop Nav */}

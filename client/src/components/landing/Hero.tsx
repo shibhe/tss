@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import heroBg from "@assets/generated_images/abstract_modern_white_and_blue_tech_geometric_background.png";
+import heroBg from "@assets/generated_images/abstract_purple_and_violet_gradient_tech_background.png";
 
 export default function Hero() {
   return (
@@ -14,9 +14,9 @@ export default function Hero() {
         <img 
           src={heroBg} 
           alt="Abstract Tech Background" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
       </div>
 
@@ -38,7 +38,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight text-foreground"
           >
-            Welcome to <span className="text-primary">T.S.S</span>
+            Welcome to <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400">T.S.S</span>
             <br />
             <span className="text-muted-foreground text-3xl md:text-5xl lg:text-6xl font-medium block mt-2">
               Empowering your vision.
@@ -60,13 +60,13 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button size="lg" className="h-12 px-8 text-base group" asChild>
+            <Button size="lg" className="h-12 px-8 text-base group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:scale-105" asChild>
               <a href="#services">
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base border-primary/20 hover:bg-primary/5 transition-all" asChild>
               <a href="#about">
                 Learn More
                 <ChevronRight className="ml-2 h-4 w-4" />

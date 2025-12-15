@@ -53,7 +53,7 @@ export default function Navbar() {
             <a 
               href="#home" 
               onClick={(e) => handleScrollTo(e, "#home")}
-              className="flex items-center transition-transform hover:scale-105"
+              className="flex items-center justify-center transition-all hover:scale-105 rounded-full bg-gradient-to-r from-primary/10 to-purple-500/10 p-2 border border-primary/20"
             >
               <img src="/logo.png" alt="Tivane Software Solutions" className="h-12 md:h-14 w-auto" />
             </a>

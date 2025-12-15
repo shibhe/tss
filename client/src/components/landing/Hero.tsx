@@ -136,15 +136,17 @@ export default function Hero() {
                 className={`absolute ${element.position}`}
               >
                 {element.badge ? (
-                  <div className={`px-3 py-1 rounded-full ${element.color} text-xs font-bold shadow-lg`}>
+                  <div className={`px-3 py-1 rounded-full ${element.color} text-xs font-bold shadow-lg border border-current/40`}>
                     {element.label}
                   </div>
                 ) : element.circle && element.icon ? (
-                  <div className={`w-16 h-16 rounded-full ${element.bg} flex items-center justify-center shadow-lg`}>
+                  <div className={`w-16 h-16 rounded-full ${element.bg} flex items-center justify-center shadow-lg border border-current/30`}>
                     {element.icon && <element.icon className={`${element.color} ${element.size}`} />}
                   </div>
                 ) : element.icon ? (
-                  <element.icon className={`${element.color} ${element.size} drop-shadow-lg`} />
+                  <div className={`flex items-center justify-center rounded-lg border border-current/30 p-2.5`}>
+                    <element.icon className={`${element.color} ${element.size}`} />
+                  </div>
                 ) : null}
               </motion.div>
             ))}

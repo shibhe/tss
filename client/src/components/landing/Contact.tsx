@@ -4,7 +4,14 @@ import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { motion } from "framer-motion";
@@ -39,7 +46,6 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-          
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -48,9 +54,12 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Get in Touch</h2>
+              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+                Get in Touch
+              </h2>
               <p className="text-muted-foreground text-lg">
-                Ready to start your next project? We're here to help you transform your ideas into reality.
+                Ready to start your next project? We're here to help you
+                transform your ideas into reality.
               </p>
             </div>
 
@@ -61,7 +70,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Address</h3>
-                  <p className="text-muted-foreground">11 Silwer-Eike, Heuweloord,<br/>Centurion, South Africa</p>
+                  <p className="text-muted-foreground">
+                    11 Silwer-Eike, Heuweloord,
+                    <br />
+                    Centurion, South Africa
+                  </p>
                 </div>
               </div>
 
@@ -95,7 +108,10 @@ export default function Contact() {
             className="bg-card p-8 rounded-2xl border border-border shadow-sm"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -103,7 +119,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} />
+                        <Input placeholder="Hlelolwenkosi Tivane" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,7 +132,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="john@example.com" {...field} />
+                        <Input placeholder="tivane@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -129,10 +145,10 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Tell us about your project..." 
-                          className="min-h-[120px]" 
-                          {...field} 
+                        <Textarea
+                          placeholder="Tell us about your project..."
+                          className="min-h-[120px]"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -146,7 +162,6 @@ export default function Contact() {
               </form>
             </Form>
           </motion.div>
-
         </div>
       </div>
     </section>

@@ -12,9 +12,9 @@ export default function Hero() {
         duration: duration,
         repeat: Infinity,
         delay: delay,
-        ease: easeInOut
-      }
-    }
+        ease: easeInOut,
+      },
+    },
   });
 
   const floatingElements: Array<{
@@ -35,7 +35,7 @@ export default function Hero() {
       position: "left-10 top-1/3",
       size: "h-10 w-10",
       duration: 3,
-      delay: 0
+      delay: 0,
     },
     {
       icon: Zap,
@@ -45,7 +45,7 @@ export default function Hero() {
       size: "h-12 w-12",
       duration: 3.5,
       delay: 0.5,
-      circle: true
+      circle: true,
     },
     {
       label: "24/7",
@@ -53,7 +53,7 @@ export default function Hero() {
       position: "right-16 top-1/4",
       badge: true,
       duration: 2.8,
-      delay: 0.3
+      delay: 0.3,
     },
     {
       icon: Mail,
@@ -61,7 +61,7 @@ export default function Hero() {
       position: "right-10 bottom-1/3",
       size: "h-10 w-10",
       duration: 3.2,
-      delay: 0.8
+      delay: 0.8,
     },
     {
       icon: Settings,
@@ -69,13 +69,13 @@ export default function Hero() {
       position: "left-1/3 bottom-10",
       size: "h-11 w-11",
       duration: 3.8,
-      delay: 1
-    }
+      delay: 1,
+    },
   ];
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-gradient-to-b from-background via-purple-50/30 dark:via-purple-900/10 to-background"
     >
       {/* Animated background elements */}
@@ -113,8 +113,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="h-12 px-8 text-base group bg-primary text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
               asChild
             >
@@ -136,15 +136,25 @@ export default function Hero() {
                 className={`absolute ${element.position}`}
               >
                 {element.badge ? (
-                  <div className={`px-3 py-1 rounded-full ${element.color} text-xs font-bold shadow-lg`}>
+                  <div
+                    className={`px-3 py-1 rounded-full ${element.color} text-xs font-bold shadow-lg`}
+                  >
                     {element.label}
                   </div>
                 ) : element.circle && element.icon ? (
-                  <div className={`w-16 h-16 rounded-full ${element.bg} flex items-center justify-center shadow-lg`}>
-                    {element.icon && <element.icon className={`${element.color} ${element.size}`} />}
+                  <div
+                    className={`w-16 h-16 rounded-full ${element.bg} flex items-center justify-center shadow-lg`}
+                  >
+                    {element.icon && (
+                      <element.icon
+                        className={`${element.color} ${element.size}`}
+                      />
+                    )}
                   </div>
                 ) : element.icon ? (
-                  <element.icon className={`${element.color} ${element.size} drop-shadow-lg`} />
+                  <element.icon
+                    className={`${element.color} ${element.size} drop-shadow-lg`}
+                  />
                 ) : null}
               </motion.div>
             ))}

@@ -1,3 +1,4 @@
+import { usePageTitle } from "@/hooks/use-page-title";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import About from "@/components/landing/About";
@@ -7,6 +8,8 @@ import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
 
 export default function Home() {
+  usePageTitle("Home");
+
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
       <Navbar />

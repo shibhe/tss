@@ -83,7 +83,7 @@ export default function Services() {
         ],
         caseStudies: [
           { title: "Fitness App", result: "2M+ downloads in 6 months", metric: "4.8★ rating" },
-          { title: "Banking App", result: "$500M transactions annually", metric: "256-bit encryption" }
+          { title: "Banking App", result: "R500M transactions annually", metric: "256-bit encryption" }
         ],
         tech: ["Swift", "Kotlin", "React Native", "Flutter", "Firebase", "AWS Mobile Hub"]
       }
@@ -164,7 +164,7 @@ export default function Services() {
         ],
         caseStudies: [
           { title: "Financial Services", result: "Automated 10,000 documents/day", metric: "95% accuracy" },
-          { title: "Manufacturing", result: "Predicted failures 30 days early", metric: "$2M saved" }
+          { title: "Manufacturing", result: "Predicted failures 30 days early", metric: "R2M saved" }
         ],
         tech: ["TensorFlow", "PyTorch", "UiPath", "LangChain", "OpenAI", "Hugging Face"]
       }

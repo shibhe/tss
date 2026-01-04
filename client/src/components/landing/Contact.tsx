@@ -33,13 +33,34 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent",
-      description: "We've received your message and will get back to you soon.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        toast({
+          title: "Message Sent",
+          description: "We've received your message and will get back to you soon.",
+        });
+        form.reset();
+      } else {
+        const data = await res.json();
+        toast({
+          title: "Error",
+          description: data.error || "Failed to send message.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -94,7 +115,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <p className="text-muted-foreground">info@tivaness.co.za</p>
+                  <p className="text-muted-foreground">joseph.sibiya@tivaness.co.za</p>
                 </div>
               </div>
             </div>

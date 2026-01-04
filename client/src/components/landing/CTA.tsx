@@ -23,13 +23,27 @@ export default function CTA() {
               Unlock Your Potential!
             </h2>
             <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8">
-              Want to learn more about what we can offer? Download our profile to explore our expertise, success stories, and how we can help you achieve your goals.
+              Want to learn more about what we can offer? Download our profile
+              to explore our expertise, success stories, and how we can help you
+              achieve your goals.
             </p>
-            <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
-              <FileText className="mr-2 h-5 w-5" />
-              Download Company Profile
-              <ArrowRight className="ml-2 h-5 w-5 opacity-50" />
-            </Button>
+            <a
+              href="/attached_assets/Tivane_Software_Solutions_Company_Profile.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-block" }}
+            >
+              <Button
+                size="lg"
+                variant="secondary"
+                className="h-14 px-8 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Download Company Profile
+                <ArrowRight className="ml-2 h-5 w-5 opacity-50" />
+              </Button>
+            </a>
           </motion.div>
         </div>
       </div>

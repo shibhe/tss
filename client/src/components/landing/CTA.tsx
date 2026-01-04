@@ -28,7 +28,7 @@ export default function CTA() {
               achieve your goals.
             </p>
             <a
-              href="/attached_assets/Tivane_Software_Solutions_Company_Profile.pdf"
+              href="/Tivane_Software_Solutions_Company_Profile.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"

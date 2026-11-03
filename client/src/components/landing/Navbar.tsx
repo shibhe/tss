@@ -20,7 +20,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       // Track active section
-      const sections = ["home", "about", "services", "contact"];
+      const sections = ["home", "about", "services", "applications", "contact"];
       let foundActive = false;
       
       for (const section of sections) {
@@ -51,6 +51,7 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Applications", href: "#applications" },
     { name: "Contact", href: "#contact" },
   ];
 
